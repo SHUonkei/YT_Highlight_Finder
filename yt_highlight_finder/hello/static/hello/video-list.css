@@ -1,0 +1,167 @@
+/* styles.css */
+
+/* タイトルのスタイル */
+.page-title {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 動画リストのスタイル */
+.video-list {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* 画面幅に合わせて折り返す */
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.video-list li {
+    margin: 10px;
+    text-align: center;
+    width: calc(50% - 20px); /* 2列のレイアウトを設定 */
+    background-color: #f7f7f7; /* 動画アイテムの背景色を設定 */
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* ホバーエフェクトのトランジションを設定 */
+    position: relative;  /* ボタンの位置を調整するために親要素に相対位置を設定 */
+    cursor: pointer;
+}
+
+/* サムネイルのスタイル */
+.thumbnail img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 動画タイトルのスタイル */
+.video-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff; /* 動画タイトルのテキストカラーを設定 */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* ホバーエフェクト */
+.video-list li:hover {
+    transform: translateY(-5px); /* 上に少し浮かび上がるエフェクト */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+/* ホバー時のサムネイル拡大 */
+.video-list li:hover .thumbnail img {
+    transform: scale(1.1);
+}
+
+/* ホバー時の動画タイトル表示 */
+.video-list li:hover .video-title {
+    opacity: 1;
+}
+
+/* オーバーレイ（ホバー時に表示されるコンテナ）のスタイル */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* オーバーレイ内のボタンのスタイル */
+.overlay a.button {
+    margin-bottom: 10px; /* ボタンとタイトルの間隔を調整 */
+}
+
+/* ホバー時のオーバーレイ表示 */
+.video-list li:hover .overlay {
+    opacity: 1;
+}
+
+/* カスタム色を追加 */
+.primary-color {
+    color: #007BFF; /* プライマリカラーを設定 */
+}
+
+
+
+/* "Watch Now" ボタンのスタイル */
+.button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+    position: absolute;
+    top: 50%; /* 上端を中央に */
+    left: 50%; /* 左端を中央に */
+    transform: translate(-50%, -50%); /* 中央配置 */
+}
+
+
+.button:hover {
+    background-color: #0056b3; /* ホバー時の背景色を設定 */
+}
+
+/* スタイリッシュな検索ボックス */
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 320px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 2px solid #007BFF;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-container input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.search-container button[type="submit"] {
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Font Awesome アイコンのスタイル */
+.fa-search {
+    font-size: 22px;
+    margin-right: 5px; /* アイコンとテキストの間隔を調整 */
+}

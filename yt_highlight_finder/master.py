@@ -21,7 +21,7 @@ with open('./data.csv',encoding='utf-8') as f:
         new_hello.url = row[3]
         print(row[3])
         new_hello.video = row[4]        
-        new_hello.tag = "test"
+        new_hello.tag = row[-1]
         print(row)
         hello_list.append(new_hello)
 

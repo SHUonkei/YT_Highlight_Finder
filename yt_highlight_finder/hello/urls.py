@@ -16,3 +16,4 @@ urlpatterns = [
     path('formpage', views.FormView.as_view(),name="formpage"),
 path('video-list', views.videoListView, name='videoListView'),
     ]
+

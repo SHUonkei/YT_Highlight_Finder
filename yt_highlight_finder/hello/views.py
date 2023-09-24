@@ -30,24 +30,14 @@ def index(request):
 def videoListView(request):
     template_name = "hello/video-list.html"
     ctx = {}
-    qs = Hello.objects.all()
+    
+    query = request.GET.get('q', '')  # 'q' は検索ボックスの名前です
+    if query:
+        qs = Hello.objects.filter(title__icontains=query)
+    else:
+        qs = Hello.objects.all()
     ctx["object_list"] = qs
-
     return render(request, template_name, ctx)
-
-
-"""
-これより先は使用していないコード
-今後の機能拡張に使えるかもしれない
-"""
-
-def next(request):
-    params = {
-        'title':"next"
-        ,'msg':"this is next page"
-        ,'goto':'index',
-    }
-    return render(request, 'hello/index.html',params)
 
 class FormView(TemplateView):
     # 初期変数定義
@@ -69,7 +59,7 @@ class FormView(TemplateView):
             
             # フォーム入力が有効な場合
             if self.params["form"].is_valid():
-                self.params["Message"] = "入力情報が送信されました。"
+                self.params["Message"] = "リクエストを受け付けました！ありがとうございます！"
                 #urlが無効なとき（youtubeとかじゃないときの例外処理必要
                 import gspread
                 from oauth2client.service_account import ServiceAccountCredentials
@@ -107,6 +97,22 @@ class FormView(TemplateView):
 
 
         return render(request, "hello/formpage.html",context=self.params)
+
+
+
+"""
+これより先は使用していないコード
+今後の機能拡張に使えるかもしれない
+"""
+
+def next(request):
+    params = {
+        'title':"next"
+        ,'msg':"this is next page"
+        ,'goto':'index',
+    }
+    return render(request, 'hello/index.html',params)
+
 
 
 #ビュー関数

@@ -1,20 +1,43 @@
-{% comment %} {% extends "base.html" %} {% endcomment %}
-
-{% block title %}動画一覧{% endblock %}
-
-{% block content %}
-<div>
-    <ul>
-      {% for obj in object_list %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/hello/video-list.css">
+    
+</head>
+<body>
+    <h1 class="page-title">{% block title %}動画一覧{% endblock %}</h1>
       
-      <a href="{{ obj.url }}" target="_blank">{{ obj.title }}</a>
+    <form method="get" action="./video-list">
+      <div class="search-container">
+          <input type="text" name="q" placeholder="キーワードを入力">
+          <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+    
+    <ul class="video-list">
+        {% for obj in object_list %}
         <li>
             <a href="{{ obj.url }}" target="_blank">
-                <!-- サムネイルを表示 -->
-            <img src="https://img.youtube.com/vi/{{ obj.video }}/0.jpg" alt="{{ obj.title }}">
-          </a>
+              <div class="thumbnail">
+                  <img src="https://img.youtube.com/vi/{{ obj.video }}/0.jpg" alt="{{ obj.title }}">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <p class="video-title">{{ obj.title }}</p>
+                      <a class="button primary-color" href="{{ obj.url }}" target="_blank">Watch Now</a>
+                    </div>
+                  </div>
+              </div>
+            </a>
+        <div>
+          <p>ジャンル</p>
+          <p>{{obj.tag}}</p>
+        </div>
         </li>
-      {% endfor %}
+        {% endfor %}
     </ul>
-</div>
-{% endblock %}
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</body>
+</html>
+
