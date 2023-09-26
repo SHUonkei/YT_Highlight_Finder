@@ -18,15 +18,6 @@ pip install django-filter
 pip install gspread
 pip install youtube-search-python
 ```
-- databaseのsetup
-```
-cd yt_highlight_finder
-python manage.py migrate
-python manage.py makemigrations hello
-python manage.py sqlmigrate hello 0001
-python manage.py migrate
-python master.py
-```
 
 ## サーバー起動
 ```
@@ -43,3 +34,17 @@ python manage.py runserver
   - このスプレッドシートに動画の情報が保存されている。
   - 動画追加のリクエストをフロントエンドから送ると、リクエスト一覧に、自動で書き込まれる。
 - 動画を追加したい場合、リクエスト一覧のスプレッドシートから、urlを取得し、RequestProcessor/main.pyのに貼り付け、実行する。ターミナルに、盛り上がったタイミングがみれるurlが生成されるので、それをスプレッドシートに書き込み、csv形式でダウンロートする。これをdata.csvとする。yt_highlight_finder直下にdata.csvを配置する。ここで、yt_highlight_finder/master.pyを実行すると、動画が追加される。
+
+
+
+
+## databaseのsetup(cloneした時点で済まされているので実行する必要はない)
+
+```
+cd yt_highlight_finder
+python manage.py migrate
+python manage.py makemigrations hello
+python manage.py sqlmigrate hello 0001
+python manage.py migrate
+python master.py
+```
