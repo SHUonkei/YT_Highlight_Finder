@@ -48,3 +48,6 @@ python manage.py sqlmigrate hello 0001
 python manage.py migrate
 python master.py
 ```
+
+## 動画説明
+https://drive.google.com/file/d/1q5v_bmUgoT2uz1lwv5vr3bnKlhJ560Qx/view?usp=drive_link
