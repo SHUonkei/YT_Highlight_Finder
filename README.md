@@ -51,3 +51,6 @@ python master.py
 
 ## 動画説明
 https://drive.google.com/file/d/1q5v_bmUgoT2uz1lwv5vr3bnKlhJ560Qx/view?usp=drive_link
+
+## 動画スライド
+https://docs.google.com/presentation/d/1UKvAcaFx5FwfXBs462EB_cARdvLDly-jhSn5VGJOP8s
